@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "att": {
+    "ag-grid-testing": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/att",
+            "outputPath": "dist/agt",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "att:build"
+            "browserTarget": "agt:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "att:build:production"
+              "browserTarget": "agt:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "att:build"
+            "browserTarget": "agt:build"
           }
         },
         "test": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "att-e2e": {
+    "agt-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -108,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "att:serve"
+            "devServerTarget": "agt:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "att:serve:production"
+              "devServerTarget": "agt:serve:production"
             }
           }
         },
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "att"
+  "defaultProject": "agt"
 }
