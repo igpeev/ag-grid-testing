@@ -2,12 +2,20 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AgGridModule } from 'ag-grid-angular';
 
 import { OrderListComponent } from './order-list.component';
-// import { of, Observable } from 'rxjs';
-// import { MOCK_DATA } from 'src/app/mocks';
-// import { OrderListResponseModel } from '../../models';
-// import { OrderListService } from '../services';
+import { of, Observable } from 'rxjs';
+import { MOCK_DATA } from '../../mocks/data.mock';
+import { OrderListResponseModel } from '../../models';
+import { OrderListService } from '../../services';
+import { Injectable } from '@angular/core';
 
-describe('OrderListComponent', () => {
+@Injectable()
+export class MockOrderListService {
+  public getOrders(): Observable<OrderListResponseModel> {
+    return of(MOCK_DATA);
+  }
+}
+
+fdescribe('OrderListComponent', () => {
     let component: OrderListComponent;
     let fixture: ComponentFixture<OrderListComponent>;
 
@@ -15,7 +23,7 @@ describe('OrderListComponent', () => {
         TestBed.configureTestingModule({
             declarations: [OrderListComponent],
             imports: [AgGridModule.withComponents([])],
-            // providers: [{ provide: OrderListService, useClass: MockOrderListService }],
+            providers: [{ provide: OrderListService, useClass: MockOrderListService }],
         }).compileComponents();
     }));
 
